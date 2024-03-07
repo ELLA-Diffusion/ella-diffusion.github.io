@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="ELLA: Equip Diffusion Models with LLM for Enhanced Semantic Alignment">
+  <meta name="keywords" content="Diffusion Models, Large Language Models, Text-Image Alignment">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ELLA: Equip Diffusion Models with LLM for Enhanced Semantic Alignment</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/ELLA-Diffusion.jpg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">ELLA: Equip Diffusion Models with LLM for Enhanced Semantic
+              Alignment</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://openreview.net/profile?id=~Xiwei_Hu1">Xiwei Hu*</a>,</span>
+              <span class="author-block">
+                <a href="https://wrong.wang/">Rui Wang*</a>,</span>
+              <span class="author-block">
+                <a href="https://openreview.net/profile?id=~Yixiao_Fang1">Yixiao Fang*</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://openreview.net/profile?id=~Pei_Cheng1">Pei Cheng</a>,
+              </span>
+              </span>
+              <span class="author-block">
+                <a href="https://openreview.net/profile?id=~BIN_FU2">Bin Fu</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.skicyyu.org/">Gang Yu&#10022</a>,
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Tencent</span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup></sup>(* Equal contributions, &#10022 Corresponding Author)</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Coming Soon</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>Coming Soon</span>
+                  </a>
+                </span>
+
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/ELLA-Diffusion/ELLA"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Coming soon</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/ELLA-Diffusion/ELLA"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa fa-database"></i>
+                    </span>
+                    <span>Coming soon</span>
+                  </a>
+                </span>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="static/images/teaser_3img.png" alt="teaser" />
+        <img src="static/images/teaser1_raccoon.png" alt="teaser" />
+        <h2 class="subtitle has-text-centered">
+          Comparison to SDXL and DALL-E 3. The prompts originate from PartiPrompts (colored text denotes critical
+          entities or attributes).
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Diffusion models have demonstrated remarkable performance in the domain of text-to-image generation.
+              However, the majority of these models still employ CLIP as their text encoder, which constrains their
+              ability to comprehend dense prompts, which encompass multiple objects, detailed attributes, complex
+              relationships, long-text alignment, etc.
+              In this paper, We introduce an <b>E</b>fficient <b>L</b>arge <b>L</b>anguage Model <b>A</b>dapter, termed
+              <b>ELLA</b>, which equips text-to-image diffusion models with powerful Large Language
+              Models (LLM) to enhance text alignment<span></span>
+              <i>without training of either U-Net or LLM</i>.
+              To seamlessly bridge two pre-trained models, we investigate a range of semantic alignment connector
+              designs and propose a novel module, the Timestep-Aware Semantic Connector (TSC), which dynamically
+              extracts timestep-dependent conditions from LLM.
+              Our approach adapts semantic features at different stages of the denoising process, assisting diffusion
+              models in interpreting lengthy and intricate prompts over sampling timesteps.
+              Additionally, ELLA can be readily incorporated with community models and
+              tools to improve their prompt-following capabilities.
+              To assess text-to-image models in dense prompt following, we introduce Dense Prompt Graph Benchmark
+              (DPG-Bench), a challenging benchmark consisting of 1K dense prompts.
+              Extensive experiments demonstrate the superiority of ELLA in dense prompt following compared to
+              state-of-the-art methods,
+              particularly in multiple object compositions involving diverse attributes and relationships.
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Method</h2>
+          <div class="content has-text-justified">
+            <p>
+              We propose a novel lightweight approach ELLA to equip existing CLIP-based diffusion models with powerful
+              LLM.
+              Without training of U-Net and LLM, ELLA improves prompt-following abilities and enables long dense text
+              comprehension of text-to-image models.
+            </p>
+            <p>
+              We design a Time-Aware Semantic Connector to extract timestep-dependent conditions from the pre-trained
+              LLM at various denoising stages. Our proposed TSC dynamically adapts semantics features over sampling time
+              steps, which effectively conditions the frozen U-Net at distinct semantic levels.
+            </p>
+            <br>
+            <figure>
+              <img src="static/images/ella_arch1.png" alt="arch" />
+              <figcaption>The overview of ELLA.</figcaption>
+            </figure>
+
+          </div>
+        </div>
+      </div>
+      <!--/ Animation. -->
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Results</h2>
+          <h3 class="title is-4">Comparison</h3>
+          <div class="content has-text-justified">
+            <figure>
+              <img src="static/images/comparison.jpg" alt="comparison" />
+              <figcaption>The comparison between ELLA, SDXL, PixArt-alpha, Playground v2 and
+                DALL-E 3. The left four columns only contain 1 or 2 entities, but the right four correspond to dense
+                prompts with more than 2 entities. All prompts originate from PartiPrompts. </figcaption>
+            </figure>
+            <figure>
+              <img src="static/images/exp_pic2.jpg" alt="exp_pic2" />
+              <figcaption>The comparison between SDXL, ELLA, and DALL-E 3 reveals their performance
+                across varying levels of prompt complexity. Prompts range from simple to intricate from top to bottom.
+                The results demonstrate that our model is capable of following both simple and complex prompts and
+                generating fine-grained detail.</figcaption>
+            </figure>
+          </div>
+
+          <h3 class="title is-4">Compatibility with Downstream Tools.</h3>
+          <div class="content has-text-justified">
+            <p>
+              Once trained, ELLA can seamlessly integrate community models and downstream tools such as
+              LoRA and ControlNet, improving their text-image alignment.
+            </p>
+            <figure>
+              <img src="static/images/Compatibility.jpg" alt="Compatibility" />
+              <figcaption>Qualitative results about ELLA(SD1.5) with personalized models. We selected representative
+                personalized models from CivitAI, equipping them with ELLA to improve
+                their prompt following ability.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--/ 
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{
+}</code></pre>
+    </div>
+  </section>-->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://github.com/ella-diffusion/ella-diffusion.github.io" class="external-link"
+          disabled>
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website use template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+            </p>
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a
+                href="https://github.com/ella-diffusion/ella-diffusion.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
